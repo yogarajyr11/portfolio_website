@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Yogarajamuni M | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050816;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title span {
+      color: #915EFF;
+    }
+
+    /* ==========================
+       NAVBAR
+    ========================== */
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(5, 8, 22, 0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: #915EFF;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+    }
+
+    .nav-links a {
+      font-size: 1rem;
+      transition: 0.3s;
+      color: #bdbdbd;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* ==========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      background: #915EFF;
+      filter: blur(180px);
+      opacity: 0.25;
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      width: 100%;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero-left h4 {
+      color: #915EFF;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-left h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero-left h1 span {
+      color: #915EFF;
+    }
+
+    .hero-left p {
+      color: #aaa6c3;
+      max-width: 650px;
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 32px;
+      border-radius: 14px;
+      font-weight: 600;
+      transition: 0.35s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+    }
+
+    .primary-btn {
+      background: #915EFF;
+      color: white;
+    }
+
+    .primary-btn:hover {
+      box-shadow: 0 10px 35px rgba(145, 94, 255, 0.45);
+    }
+
+    .secondary-btn {
+      border: 1px solid #915EFF;
+      color: #915EFF;
+    }
+
+    .secondary-btn:hover {
+      background: #915EFF;
+      color: white;
+    }
+
+    .hero-right {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      width: 380px;
+      height: 380px;
+      border-radius: 30px;
+      background: linear-gradient(145deg,
+          rgba(145, 94, 255, 0.25),
+          rgba(255, 255, 255, 0.03));
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      backdrop-filter: blur(15px);
+
+      box-shadow:
+        0 20px 80px rgba(145, 94, 255, 0.2);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+
+    /* ==========================
+       CARDS
+    ========================== */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #151030;
+      border-radius: 25px;
+      padding: 35px;
+      transition: 0.4s;
+      border: 1px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: #915EFF;
+    }
+
+    .card h3 {
+      margin-bottom: 18px;
+      color: white;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      color: #aaa6c3;
+      line-height: 1.9;
+    }
+
+    /* ==========================
+       SKILLS
+    ========================== */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .skill {
+      padding: 10px 18px;
+      border-radius: 40px;
+      background: rgba(145, 94, 255, 0.12);
+      border: 1px solid rgba(145, 94, 255, 0.25);
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: #915EFF;
+      transform: scale(1.05);
+    }
+
+    /* ==========================
+       EXPERIENCE
+    ========================== */
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .timeline-item {
+      background: #151030;
+      padding: 35px;
+      border-radius: 24px;
+      border-left: 4px solid #915EFF;
+      transition: 0.4s;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-8px);
+    }
+
+    .timeline-item h3 {
+      color: white;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    .timeline-item p {
+      color: #915EFF;
+      margin-bottom: 20px;
+    }
+
+    .timeline-item ul {
+      padding-left: 20px;
+      color: #aaa6c3;
+      line-height: 1.9;
+    }
+
+    /* ==========================
+       PROJECTS
+    ========================== */
+
+    .project-card {
+      background: #151030;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: 0.4s;
+      border: 1px solid transparent;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      border-color: #915EFF;
+    }
+
+    .project-image {
+      height: 220px;
+      background: linear-gradient(135deg, #915EFF, #5f2eea);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-image h3 {
+      font-size: 2rem;
+      color: white;
+    }
+
+    .project-content {
+      padding: 30px;
+    }
+
+    .project-content h4 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .project-content p {
+      color: #aaa6c3;
+      line-height: 1.9;
+    }
+
+    /* ==========================
+       CONTACT
+    ========================== */
+
+    .contact-box {
+      max-width: 850px;
+      margin: auto;
+      background: #151030;
+      padding: 60px;
+      border-radius: 30px;
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: #aaa6c3;
+      margin-bottom: 30px;
+      line-height: 1.9;
+    }
+
+    .email-btn {
+      display: inline-block;
+      padding: 16px 34px;
+      border-radius: 14px;
+      background: #915EFF;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .email-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 35px rgba(145, 94, 255, 0.4);
+    }
+
+    /* ==========================
+       FOOTER
+    ========================== */
+
+    footer {
+      padding: 35px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    footer p {
+      color: #aaa6c3;
+      margin: 8px 0;
+    }
+
+    .linkedin {
+      color: #915EFF;
+    }
+
+    /* ==========================
+       RESPONSIVE
+    ========================== */
+
+    @media(max-width:950px) {
+
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-left h1 {
+        font-size: 3.5rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-card {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    @media(max-width:768px) {
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 220px;
+        background: #151030;
+        border-radius: 16px;
+        padding: 20px;
+        display: none;
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+      }
+
+      .hero-left h1 {
+        font-size: 2.8rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .contact-box {
+        padding: 40px;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .btn,
+      .email-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        width: 260px;
+        height: 260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="container nav-container">
+
+      <div class="logo">
+        Yogarajamuni <span>M</span>
+      </div>
+
+      <div class="menu-toggle" id="menu-toggle">
+        ☰
+      </div>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-content">
+
+      <div class="hero-left">
+
+        <h4>Hello, I'm</h4>
+
+        <h1>
+          Yogarajamuni <span>M</span>
+        </h1>
+
+        <p>
+          Data Analyst & QA Tester
+        </p>
+
+        <div class="hero-buttons">
+
+         <a href="Yogarajamuni.pdf" download class="btn primary-btn">
+            Download Resume
+        </a>
+          <a href="#contact" class="btn secondary-btn">
+            Contact Me
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-right">
+
+        <div class="hero-card">
+          <img src="profile.jpg.jpeg" alt="Yogarajamuni M">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        About <span>Me</span>
+      </h2>
+      <p style="
+      color:#aaa6c3;
+      line-height:1.9;
+      text-align:center;
+      max-width:900px;
+      margin:0 auto 50px;
+    ">
+    Dedicated professional with 2.7 years of experience 
+    in QA Testing. Skilled in SQL, Power BI, Python,
+    playwright with typescript, and manual testing methodologies. Passionate about
+    transforming data into insights and ensuring product quality.
+    </p>
+
+      <div class="grid">
+
+        <div class="card">
+
+          <h3>Education</h3>
+
+          <p>
+            B.Sc. Computer Science
+            <br><br>
+            Madurai Kamaraj University
+            <br>
+            2018 – 2021
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Languages</h3>
+
+          <p>
+            English
+            <br><br>
+            Tamil
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Certification</h3>
+
+          <p>
+            Deloitte Australia Data Analytics Job Simulation
+            <br><br>
+            Forage – 2025
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        My <span>Skills</span>
+      </h2>
+
+      <div class="grid">
+
+        <div class="card">
+
+          <h3>Data Analytics</h3>
+
+          <div class="skills">
+
+            <div class="skill">SQL</div>
+            <div class="skill">Power BI</div>
+            <div class="skill">Tableau</div>
+            <div class="skill">Excel</div>
+            <div class="skill">Python</div>
+            <div class="skill">Data Visualization</div>
+
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>QA Testing</h3>
+
+          <div class="skills">
+
+            <div class="skill">Manual Testing</div>
+            <div class="skill">Regression Testing</div>
+            <div class="skill">Smoke Testing</div>
+            <div class="skill">Integration Testing</div>
+            <div class="skill">Jira</div>
+            <div class="skill">Selenium</div>
+            <div class="skill">Pytest</div>
+            <div class="skill">SDLC/STLC</div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section id="experience">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Work <span>Experience</span>
+      </h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+
+          <h3>Infosys Limited — System Associate</h3>
+
+          <p>
+            May 2022 – Jan 2025
+          </p>
+
+          <ul>
+            <li>Performed functional, regression, smoke, UI, and database testing.</li>
+            <li>Tracked defects and bugs using Jira.</li>
+            <li>Executed SQL validation and backend testing.</li>
+            <li>Worked on requirement analysis and reporting insights.</li>
+            <li>Collaborated in Agile sprint cycles with QA and development teams.</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        My <span>Projects</span>
+      </h2>
+
+      <div class="grid">
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+          <div class="project-image">
+            <h3>Power BI</h3>
+          </div>
+
+          <div class="project-content">
+
+            <h4>Sales Dashboard Project</h4>
+
+            <p>
+              Built an interactive Sales Dashboard using SQL and Power BI
+              to analyze sales trends, customer behavior, and product performance.
+            </p>
+
+            <br>
+
+            <p>
+              • Created interactive dashboards to visualize sales trends.
+              <br><br>
+              • Used SQL queries for business reporting and customer analysis.
+              <br><br>
+              • Improved data-driven decision making through visual insights.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+          <div class="project-image">
+            <h3>QA</h3>
+          </div>
+
+          <div class="project-content">
+
+            <h4>GSL – Bank of America QA Project</h4>
+
+            <p>
+              Worked on banking application testing by executing multiple
+              testing methodologies and backend validation processes.
+            </p>
+
+            <br>
+
+            <p>
+              • Designed and executed 250+ test cases.
+              <br><br>
+              • Performed regression and smoke testing across sprint cycles.
+              <br><br>
+              • Executed SQL queries for backend validation.
+              <br><br>
+              • Maintained testing reports and defect tracking documentation.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card">
+
+          <div class="project-image">
+            <h3>Tableau</h3>
+          </div>
+
+          <div class="project-content">
+
+            <h4>Tableau Dashboard</h4>
+
+            <p>
+              Developed a Tableau dashboard during Deloitte Australia
+              Data Analytics Simulation to present interactive business insights.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Contact <span>Me</span>
+      </h2>
+
+      <div class="contact-box">
+
+        <p>
+          Interested in collaborating, hiring, or discussing opportunities?
+          Feel free to reach out through email.
+        </p>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yogarajamuni@gmail.com&su=Portfolio%20Contact&body=Hello%20Yogarajamuni,"
+          target="_blank"
+          class="email-btn">
+          Send Email
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026 Yogarajamuni M
+      </p>
+
+      <p>
+        Tamil Nadu, India
+      </p>
+
+      <p>
+        <a href="https://www.linkedin.com/in/yogarajamuni-m-779bab266"
+          target="_blank"
+          class="linkedin">
+          LinkedIn Profile
+        </a>
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+
+</body>
+
+</html>
